@@ -1,0 +1,113 @@
+/*Course: SENG 513*/
+/*Date: NOV 13, 2023*/
+/*Assignment 3*/
+/*Name: Kevin Phan*/
+/*UCID:" 30053689*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(76, 76, 76);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Game Board */
+.game-board {
+    background-color: blue;
+    border: 5px solid black;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 420px;
+    height: 360px;
+    gap: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.hole {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hole.hovered {
+    background-color: rgb(77, 77, 77); /* Add a glow effect color */
+    transition: background-color 0.5s ease; /* Add a smooth transition */
+}
+
+.turn-display {
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #419c44;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition for background-color */
+}
+
+/* Add styles for hover and active states */
+.reset-button:hover {
+    background-color: #2d7b31; /* Darker green on hover */
+}
+
+.reset-button:active {
+    transform: translateY(2px); /* Add a small translateY on click for a press effect */
+}
+
+/* Pieces */
+.yellow,.red {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    animation: fallAnimation 0.5s ease-out; /* Add animation property */
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.piece {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+@keyframes fallAnimation {
+    from {
+        transform: translateY(-360px); /* Adjust the initial position based on the game board height */
+    }
+    to {
+        transform: translateY(0);
+    }
+}
